@@ -1,12 +1,12 @@
 
-const db = require("../model/index");
-const { singup } = require("./auth_controller")
-const Student = db.student;
-const Auth = db.auth
+const { singup } = require("../controllers/auth_controller")
+const Auth = require("../models/auth_model")
+const Student = require("../models/student_model")
 
+module.exports = {
 
 // Student Profile
-exports.create = async (req, res) => {
+create : async (req, res) => {
   let datas = await Auth.find({ email: req.body.email })
   if (datas.length == 0) {
     const student = new Student({
@@ -42,6 +42,8 @@ exports.create = async (req, res) => {
 
   }
 
-};
+}
+
+}
 
 
