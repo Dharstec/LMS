@@ -9,7 +9,7 @@ const authSchema = new mongoose.Schema(
             type: String
         },
         phone_no: {
-            type: String,
+            type: Number,
             required: true,
         },
         dob: {
@@ -29,6 +29,10 @@ const authSchema = new mongoose.Schema(
         },
         aadhar_no: {
             type: String
+        },
+        flag:{
+            type:String,
+            required: true
         }
     },
     { timestamps: true }
