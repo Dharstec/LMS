@@ -34,8 +34,16 @@ module.exports = {
       var token = jwt.sign({ id: data.id }, config.secret, {
         expiresIn: 86400 // 24 hours
       });
+      console.log(data);
+      if (data.flag == 'student'){
+        
+      }
+      else{
+
+      }
       res.status(200).send({
         email: data.email,
+        type: data.flag,
         accessToken: token
       });
     })
