@@ -31,7 +31,7 @@ module.exports = {
           message: "Invalid Password!"
         });
       }
-      var token = jwt.sign({ id: data.id }, config.secret, {
+      var token = jwt.sign({ id: data.id,email: data.email }, config.secret, {
         expiresIn: 86400 // 24 hours
       });
       console.log(data);

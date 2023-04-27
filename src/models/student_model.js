@@ -1,23 +1,40 @@
 const mongoose = require("mongoose");
 const authSchema = new mongoose.Schema(
     {
+        name: {
+            type: String,
+            required: true
+        },
+        student_id: {
+            type: Number,
+            required: true
+        },
+        class_section: {
+            type: String,
+            required: true
+        },
+        roll_no: {
+            type: String,
+            required: true
+        },
         email: {
             type: String,
             required: true,
         },
         gender: {
-            type: String
+            type: String,
+            required: true
         },
         phone_no: {
             type: Number,
             required: true,
         },
         dob: {
-            type: String
+            type: Date
         },
         blood_group: {
             type: String
-        },  
+        },
         community: {
             type: String
         },
@@ -28,11 +45,28 @@ const authSchema = new mongoose.Schema(
             type: String
         },
         aadhar_no: {
+            type: Number
+        },
+        father_name: {
             type: String
         },
-        flag:{
-            type:String,
-            required: true
+        father_phone_no: {
+            type: Number
+        },
+        mother_name: {
+            type: String
+        },
+        mother_phone_no: {
+            type: Number
+        },
+        parent_email: {
+            type: String
+        },
+        residential_address: {
+            type: String
+        },
+        permanent_address: {
+            type: String
         }
     },
     { timestamps: true }
