@@ -1,61 +1,52 @@
 const mongoose = require("mongoose");
 const authSchema = new mongoose.Schema(
     {
+        
         name: {
             type: String,
-            required: true
-        },
-        student_id: {
-            type: String,
-            required: true
-        },
-        roll_no: {
-            type: String,
-            required: true
+            required: true,
         },
         email: {
             type: String,
             required: true,
         },
         gender: {
-            type: String,
-            required: true
+            type: String
         },
         phone_no: {
             type: String,
             required: true,
         },
+        marital_status: {
+            type: String
+        },
+
         dob: {
-            type: Date
+            type: String
         },
         blood_group: {
             type: String
-        },
+        },  
         community: {
             type: String
         },
+        parent_or_spouse: {
+            type: String
+        },
+        emergency_no: {
+            type: String
+        },
+
         religion: {
             type: String
         },
         language: {
             type: Array
         },
-        aadhar_no: {
+        educattion: {
             type: String
         },
-        father_name: {
-            type: String
-        },
-        father_phone_no: {
-            type: String
-        },
-        mother_name: {
-            type: String
-        },
-        mother_phone_no: {
-            type: String
-        },
-        parent_email: {
+        experience: {
             type: String
         },
         residential_address: {
@@ -63,9 +54,12 @@ const authSchema = new mongoose.Schema(
         },
         permanent_address: {
             type: String
+        },
+        aadhar_no: {
+            type: String
         }
     },
     { timestamps: true }
 );
 
-module.exports = mongoose.model("student", authSchema);
+module.exports = mongoose.model("teacher", authSchema);
