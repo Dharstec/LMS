@@ -6,10 +6,6 @@ const authSchema = new mongoose.Schema(
             required: true
         },
         student_id: {
-            type: Number,
-            required: true
-        },
-        class_section: {
             type: String,
             required: true
         },
@@ -26,7 +22,7 @@ const authSchema = new mongoose.Schema(
             required: true
         },
         phone_no: {
-            type: Number,
+            type: String,
             required: true,
         },
         dob: {
@@ -42,22 +38,22 @@ const authSchema = new mongoose.Schema(
             type: String
         },
         language: {
-            type: String
+            type: Array
         },
         aadhar_no: {
-            type: Number
+            type: String
         },
         father_name: {
             type: String
         },
         father_phone_no: {
-            type: Number
+            type: String
         },
         mother_name: {
             type: String
         },
         mother_phone_no: {
-            type: Number
+            type: String
         },
         parent_email: {
             type: String

@@ -5,7 +5,7 @@ const Teacher = require("../models/teacher_model")
 
 module.exports = {
 
-    // Student Profile
+    // Teacher
     create: async (req, res) => {
         let datas = await Auth.find({ email: req.body.email })
         if (datas.length == 0) {
@@ -27,7 +27,6 @@ module.exports = {
                 experience: req.body.experience,
                 residential_address: req.body.residential_address,
                 permanent_address: req.body.permanent_address
-
             });
             teacher.save(teacher).then(data => {
                 let authtable = {

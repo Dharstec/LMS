@@ -10,7 +10,7 @@ module.exports = {
     const auth = new Auth({
       email: req.email || req.body.email,
       password: bcrypt.hashSync(req.password || req.body.password, 8),
-      flag: req.flag|| req.body.flag
+      flag: req.flag || req.body.flag
     });
     auth.save(auth)
   },
@@ -31,23 +31,15 @@ module.exports = {
           message: "Invalid Password!"
         });
       }
-      var token = jwt.sign({ id: data.id,email: data.email }, config.secret, {
+      var token = jwt.sign({ email: data.email,flag:data.flag }, config.secret, {
         expiresIn: 86400 // 24 hours
       });
-      console.log(data);
-      if (data.flag == 'student'){
-        
-      }
-      else{
-
-      }
       res.status(200).send({
         email: data.email,
         type: data.flag,
         accessToken: token
       });
-    })
-      .catch(err => {
+    }).catch(err => {
         res
           .status(500)
           .send({ message: "Error retrieving email" });

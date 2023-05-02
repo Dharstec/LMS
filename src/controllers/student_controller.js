@@ -2,6 +2,8 @@
 const { singup } = require("../controllers/auth_controller")
 const Auth = require("../models/auth_model")
 const Student = require("../models/student_model")
+const ClassRoom = require("../models/class_room_model")
+const ClassStudent = require("../models/class_student_model")
 
 module.exports = {
 
@@ -11,8 +13,7 @@ module.exports = {
     if (datas.length == 0) {
       const student = new Student({
         name: req.body.name,
-        student_id: `${req.body.name}-${roll_no}`,
-        class_section: req.body.class_section,
+        student_id: `${req.body.name}-${req.body.roll_no}`,
         roll_no: req.body.roll_no,
         phone_no: req.body.phone_no,
         email: req.body.email,
@@ -21,10 +22,10 @@ module.exports = {
         blood_group: req.body.blood_group,
         community: req.body.community,
         religion: req.body.religion,
-        language: req.body.language,
+        language: req.body.language, // Array
         aadhar_no: req.body.aadhar_no,
         father_name: req.body.father_name,
-        father_phone_no: body.father_phone_no,
+        father_phone_no: req.body.father_phone_no,
         mother_name: req.body.mother_name,
         mother_phone_no: req.body.mother_phone_no,
         parent_email: req.body.parent_email,
@@ -57,12 +58,27 @@ module.exports = {
 
   getStudent: async (req, res) => {
     try {
-      console.log('req.email',req.email)
-      let datas = await Student.find({email: req.email})
+      let datas = await Student.find({ email: req.email })
       res.status(200).send({
         message: "Success",
         data: datas
       })
+    } catch (error) {
+      res.status(500).send({
+        message: "Failed",
+        data: `${error.message || error}`
+      })
+    }
+
+  },
+  getstuDetail: async (req, res) => {
+    try {
+      ClassStudent.find({ email: req.email, is_active:true }).then(data => {
+        res.status(200).send({
+          message: "Success",
+          data: data
+        })
+        })
     } catch (error) {
       res.status(500).send({
         message: "Failed",

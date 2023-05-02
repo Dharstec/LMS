@@ -14,7 +14,7 @@ const authSchema = new mongoose.Schema(
             type: String
         },
         phone_no: {
-            type: Number,
+            type: String,
             required: true,
         },
         marital_status: {
@@ -34,7 +34,7 @@ const authSchema = new mongoose.Schema(
             type: String
         },
         emergency_no: {
-            type: Number
+            type: String
         },
 
         religion: {
