@@ -3,9 +3,7 @@ const classRoom = new mongoose.Schema(
     {
         class_room_name: {
             type: String,
-            required: true,
-            index: true, 
-            unique: true
+            required: true
         },
         section: {
             type: String,
