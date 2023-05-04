@@ -40,8 +40,7 @@ module.exports = {
         }
         singup(authtable)
         res.send(data);
-      })
-        .catch(err => {
+      }).catch(err => {
           res.status(500).send({
             message:
               err.message || "Some error occurred while creating"
@@ -52,7 +51,7 @@ module.exports = {
         message: `The email address is already associated (${req.body.email})`
       });
 
-    }
+   }
 
   },
 

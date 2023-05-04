@@ -3,15 +3,16 @@ const authSchema = new mongoose.Schema(
     {
         email: {
             type: String,
-            required: true,
+            required: [true, "Please enter your email"],
+            unique: true
         },
         password: {
             type: String,
-            required: true,
+            required: [true, "Please enter your password"],
         },
         flag: {
             type: String,
-            required: false,
+            required: [true, "Please enter your Student or Teacher"],
         },
     },
     { timestamps: true }

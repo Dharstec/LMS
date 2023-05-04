@@ -1,9 +1,10 @@
 const mongoose = require("mongoose");
+const helper = require("../middleware/helper")
 const authSchema = new mongoose.Schema(
     {
         name: {
             type: String,
-            required: true
+            required: [true, "Please enter your name"]
         },
         student_id: {
             type: String,
@@ -11,19 +12,22 @@ const authSchema = new mongoose.Schema(
         },
         roll_no: {
             type: String,
-            required: true
+            required: [true, "Please enter your roll no"]
         },
         email: {
             type: String,
-            required: true,
+            required: [true, "Please enter your email"],
+            validate: [helper.EmailValidator, "Please enter a valid email"],
+            unique: true,        
         },
         gender: {
             type: String,
-            required: true
+            required: [true, "Please enter your gender"],
         },
         phone_no: {
             type: String,
-            required: true,
+            required: [true, "Please enter your mobile number"],
+            validate: [helper.PhoneNumberValidator, "Please enter a valid mobile number"]
         },
         dob: {
             type: Date

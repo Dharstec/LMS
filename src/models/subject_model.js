@@ -3,16 +3,15 @@ const subject = new mongoose.Schema(
     {
         subject_name: {
             type: String,
-            required: true,
-            unique: true
+            required: [true, "Please enter your subject_name"]
         },
         subject_code: {
             type: String,
-            required: true
+            required: [true, "Please enter your subject_code"]
         },
         is_active: {
             type: String,
-            required: true
+            required: [true, "Please enter your is_active"]
         },
     },
     { timestamps: true }
