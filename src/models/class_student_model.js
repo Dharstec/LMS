@@ -3,9 +3,7 @@ const classStudent = new mongoose.Schema(
     {
         student_name: {
             type: String,
-            required: true,
-            index: true, 
-            unique: true
+            required: true
         },
         email: {
             type: String,

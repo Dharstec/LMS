@@ -5,6 +5,8 @@ const ClassRoom = require("./routes/class_room_route");
 const Subject = require("./routes/subject_route");
 const ClassStudent = require("./routes/class_student_route");
 const ClassRoomSubject = require("./routes/class_room_subject_route");
+const StudentDashboard = require("./routes/student_dashboard_route");
+const TeacherDashboard = require("./routes/teacher_dashboard_route");
 
 module.exports = function (app) {
     app.use("/auth", Auth);
@@ -14,4 +16,6 @@ module.exports = function (app) {
     app.use("/subject",Subject);
     app.use("/class_student",ClassStudent);
     app.use("/class_room_subject",ClassRoomSubject);
+    app.use("/dashboard/student/",StudentDashboard);
+    app.use("/dashboard/teacher/",TeacherDashboard);
 };
