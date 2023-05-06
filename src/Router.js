@@ -7,6 +7,8 @@ const ClassStudent = require("./routes/class_student_route");
 const ClassRoomSubject = require("./routes/class_room_subject_route");
 const StudentDashboard = require("./routes/student_dashboard_route");
 const TeacherDashboard = require("./routes/teacher_dashboard_route");
+const Noticeboard = require("./routes/notice_board_route");
+const Attendance = require("./routes/attendance_route");
 
 module.exports = function (app) {
     app.use("/auth", Auth);
@@ -18,4 +20,6 @@ module.exports = function (app) {
     app.use("/class_room_subject",ClassRoomSubject);
     app.use("/dashboard/student/",StudentDashboard);
     app.use("/dashboard/teacher/",TeacherDashboard);
+    app.use("/notice_board",Noticeboard);
+    app.use("/attendance",Attendance);
 };
